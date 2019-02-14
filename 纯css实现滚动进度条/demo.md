@@ -1,5 +1,5 @@
 假设我们的页面被包裹在 <body> 中，可以滚动的是整个 body，给它添加这样一个从左下到到右上角的线性渐变：
-```
+```css
 body {
     background-image: linear-gradient(to right top, #ffcc00 50%, #eee 50%);
     background-repeat: no-repeat;
@@ -9,7 +9,7 @@ body {
 ![ffa488e3dc3f1f8ad90902757edae326.gif](evernotecid://D98F1639-E58C-490F-9699-C2A1D05D02E0/appyinxiangcom/10335219/ENResource/p15)
 我们运用一个伪元素，把多出来的部分遮住：
 
-```
+```css
 body::after {
     content: "";
     position: fixed;
@@ -22,7 +22,7 @@ body::after {
 }
 ```
 再调整一下body的高度：
-```
+```css
 body {
     background-image: linear-gradient(to right top, #ffcc00 50%, #eee 50%);
     background-size: 100% calc(100% - 100vh + 5px);

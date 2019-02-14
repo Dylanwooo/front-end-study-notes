@@ -2,7 +2,7 @@
 基本类型的拷贝直接对值进行拷贝，基本类型是按值访问的
      
  
-```javascript
+```JavaScript
 // 基本类型
 var a = 1;
 var b = a;
@@ -16,7 +16,7 @@ a.c = 2;
 console.log(a.c, b.c); // 2, 2 全是2，a b指向同一份数据
 ```
 2. 浅拷贝实现：实际就是属性遍历然后复制
-```javascript
+```JavaScript
 function shallowClone(source) {
    var target = {}
    for(var i in source) {
@@ -28,11 +28,11 @@ function shallowClone(source) {
 }
 ```
 3. 简单的深拷贝：浅拷贝+递归 
-```javascript
+```JavaScript
 // 假设有这个数据，就需要深拷贝 
 var a1 = {b: {c: {d: 1}};
 ```
-```javascript
+```JavaScript
 // 对象检验函数
 function isObject(x) {
   return Object.prototype.toString.call(x) === '[object Object]';
@@ -57,7 +57,7 @@ function clone(source) {
 4. 递归的情况很容易引起爆栈
 *     借助一个栈stack，深度遍历source对象，子节点是对象，放入栈内，否则直接拷贝
 * 同时要解决循环引用问题，如
-```javascript
+```JavaScript
 var b = 1;
 var a = {a1: b, a2: b};
 a.a1 === a.a2 // true
@@ -65,7 +65,7 @@ var c = clone(a);
 c.a1 === c.a2 // false
 ```
 所以可以写成：
-```javascript
+```JavaScript
  // 
     function find(arr, item) {
         for(let i = 0; i < arr.length; i++) {

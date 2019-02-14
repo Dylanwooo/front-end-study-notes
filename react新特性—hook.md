@@ -5,7 +5,7 @@
  如：接口请求，订阅数据，监听
     原本订阅在`componentDidMount`中订阅，在`componentWillUnmount`中取消订阅，现在可以直接写在`useEffect`中
     
-```javascript
+```JavaScript
 useEffect(() => {
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
    return () => {
@@ -15,7 +15,7 @@ useEffect(() => {
 ```
 
 3. **useState使用**——替代传统`state`定义和`setState`方法
-```javascript
+```JavaScript
 import { useState } from 'react';
 function Example() {
     //定义state和改变state的方法
@@ -33,7 +33,7 @@ function Example() {
 4. **useEffect使用**——代替传统的生命周期方法
     1. 将同过程的effect(调用，监听)放于同一个effect中
     `以前的方式：` 
-```javascript
+```
  componentDidMount() {
     ChatAPI.subscribeToFriendStatus(
       this.props.friend.id,
@@ -49,7 +49,7 @@ function Example() {
 ```
 现在可以这样：
  
-```javascript
+```
 useEffect(() => {
     ChatAPI.subscribe(props.friend.id, handleStatusChange);
     return () => {
@@ -58,7 +58,7 @@ useEffect(() => {
 ```
 useEffect每次state更新都会调用，return是在组件unmount的时候调用
 如果要让组件更高效，也有类似componentWillUpdate的方式检测更新：
-```javascript
+```
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count]); 

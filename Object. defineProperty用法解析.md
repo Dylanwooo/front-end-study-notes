@@ -4,7 +4,7 @@
 * * *
 
 >    直接在一个对象上定义一个新的属性，或者是修改已存在的属性。最终这个方法会返回该对象。
-```javascript
+```JavaScript
 var a = {}
 a.name = 'dylanwoo'   //传统方法
 // 这种方法
@@ -15,7 +15,7 @@ Object.defineProperty(someOne, 'name', {
 `descriptor`中有三个值可以设置：`writable`(可写性),`configurable`(可修改性)，`enumerable`(可否通过`for-in`或在`object.key`中枚举出来)
 
 2. **.方法和defineProperty区别**
-```javascript
+```JavaScript
 var someOne = { };
 someOne.name = 'coverguo';
 console.log(Object.getOwnPropertyDescriptor(someOne, 'name'));
@@ -26,7 +26,7 @@ console.log(Object.getOwnPropertyDescriptor(someOne, 'name'));
         configurable: true}
 ```
 .方法设置属性时三个descriptor都是默认为true的
-```javascript
+```JavaScript
 var otherOne = {};
 Object.defineProperty(otherOne, "name", {
     value:"coverguo" 
@@ -43,7 +43,7 @@ Object. defineProperty方法如果不设置三个descriptor默认为false
 
 3. **实际应用**
 使用set方法批量设置一些重复的代码：
-```javascript
+```JavaScript
 Object.defineProperty(dom, 'translateX', {
 set: function(value) {
          var transformText = 'translateX(' + value + 'px)';
@@ -55,7 +55,7 @@ dom.translateX = 10;
 dom.translateX = -10;
 ```
 使用get方法在读取对象属性时触发事件：
-```javascript
+```JavaScript
 var b = {
     name: 'dylanwoo'
 }
