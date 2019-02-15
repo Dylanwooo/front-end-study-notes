@@ -61,6 +61,10 @@ try {
     const listeners = (currentListeners = nextListeners)
     for (let i = 0; i < listeners.length; i++) {
       const listener = listeners[i]
+      /**
+      * 不使用listeners[i]()的原因是会造成listeners泄露，
+      * 所以使用一个变量保存后再调用
+      */
       listener()
     }
     /**第三步：
