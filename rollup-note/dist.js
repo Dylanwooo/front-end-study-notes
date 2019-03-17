@@ -1,7 +1,9 @@
 'use strict';
 
+var jmCommon = require('@jmfe/jm-common');
+
 function log() {
-    console.log('hello world!');
+    console.log(jmCommon.isArray('hello world!'));
 }
 
 log();
